@@ -8,6 +8,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Health check route
+app.get("/api/health", (req, res) => {
+  res.json({ status: "ok", message: "Backend is live and healthy 🚀" });
+});
+
 const PORT = process.env.PORT || 4000;
 const MONGODB_URI = process.env.MONGODB_URI || "";
 
