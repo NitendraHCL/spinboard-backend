@@ -2,7 +2,7 @@
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
-import Spinboard from "./models/Spinboard.js";
+import Spinboard from "./Spinboard.js";
 
 const app = express();
 app.use(cors());
