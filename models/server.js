@@ -2,7 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
-import spinboardRoutes from "./routes/spinboardRoutes.js";
+import spinboardRoutes from "../routes/spinboardRoutes.js";
 
 dotenv.config();
 const app = express();
