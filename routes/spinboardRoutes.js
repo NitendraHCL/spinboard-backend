@@ -1,9 +1,30 @@
+// routes/spinboardRoutes.js
 import express from "express";
-import { createSpinboard, getSpinboard } from "../controllers/spinboardController.js";
+import Spinboard from "../models/spinboardModel.js";
 
 const router = express.Router();
 
-router.post("/", createSpinboard);
-router.get("/:loginId", getSpinboard);
+// ✅ Test Route
+router.get("/test", (req, res) => {
+  res.json({ message: "Spinboard API is working fine!" });
+});
 
-export default router;
+// ✅ Get all spinboards
+router.get("/", async (req, res) => {
+  try {
+    const spinboards = await Spinboard.find();
+    res.json(spinboards);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// ✅ Create new spinboard
+router.post("/", async (req, res) => {
+  try {
+    const spinboard = new Spinboard(req.body);
+    const saved = await spinboard.save();
+    res.status(201).json(saved);
+  } catch (error) {
+    res.status(400).jso
+
